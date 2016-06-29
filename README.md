@@ -65,7 +65,7 @@ var autocomplete =$('#el').autocomplete({
     + `dropdown.tagName [string]`: `TagName` of dropdown when `dropdown.el` is null, default: `ul`
     + `dropdown.className [string]`: `ClassName` attribute of dropdown, default: `ac-dropdown`
     + `dropdown.itemTemplate [string]`: Template string of items inside dropdown, using [undescore template](http://underscorejs.org/#template), **`data-id` and `data-text` attributes should be specified on outest DOM**
-    + `dropdown.noItem [string]`: Prompt for no data`，default: `''`
+    + `dropdown.noItem [string]`: Prompt for no data，default: `''`
 + `handlers [object]`: Event handlers of the widget
 + `getData(value, callback) [function]`: Function for getting dropdown list data, asynchronous called with a `callback`
     + `value [string]`: Input value，when `input` event triggered, `getData` function will be called with input value
@@ -97,6 +97,6 @@ var autocomplete =$('#el').autocomplete({
 + `autocomplete.render() [function]`: Rendering method
 + `autocomplete.setValue(item) [function]`: Value setting method
     + `item [object]`: Selection object, e.g. `{ id: '1', text: 'a'}`
-+ `autocomplete.append(item) [function]`: Appending an selection, called when **`options.multiple.enable` is `true`**
-+ `autocomplete.remove(item) [function]`: Removing an selection, called when **`options.multiple.enable` is `true`**
-+ `autocomplete.select(item) [function]`: Setting the value, called when **`options.multiple.enable` is `false`**
++ `autocomplete.append(item) [function]`: Appending an selection, called when `options.multiple.enable` is `true`
++ `autocomplete.remove(item) [function]`: Removing an selection, called when `options.multiple.enable` is `true`
++ `autocomplete.select(item) [function]`: Setting the value, called when `options.multiple.enable` is `false`
