@@ -1,0 +1,375 @@
+<!DOCTYPE html>
+<html lang="en-us">
+  <head>
+    <meta charset="UTF-8">
+    <title>Materialize-autocomplete by icefox0801</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" type="text/css" href="stylesheets/normalize.css" media="screen">
+    <link href='https://fonts.googleapis.com/css?family=Open+Sans:400,700' rel='stylesheet' type='text/css'>
+    <link rel="stylesheet" type="text/css" href="stylesheets/stylesheet.css" media="screen">
+    <link rel="stylesheet" type="text/css" href="stylesheets/github-light.css" media="screen">
+  </head>
+  <body>
+    <section class="page-header">
+      <h1 class="project-name">Materialize-autocomplete</h1>
+      <h2 class="project-tagline">Materialize-css styled autocomplete</h2>
+      <a href="https://github.com/icefox0801/materialize-autocomplete" class="btn">View on GitHub</a>
+      <a href="https://github.com/icefox0801/materialize-autocomplete/zipball/master" class="btn">Download .zip</a>
+      <a href="https://github.com/icefox0801/materialize-autocomplete/tarball/master" class="btn">Download .tar.gz</a>
+    </section>
+
+    <section class="main-content">
+      <h1>
+<a id="materialize-autocomplete" class="anchor" href="#materialize-autocomplete" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>materialize-autocomplete</h1>
+
+<p>Materialize-css styled autocomplete </p>
+
+<h2>
+<a id="install" class="anchor" href="#install" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>Install</h2>
+
+<ul>
+<li>npm </li>
+</ul>
+
+<div class="highlight highlight-source-shell"><pre>$ npm install materialize-autocomplete</pre></div>
+
+<ul>
+<li>bower</li>
+</ul>
+
+<div class="highlight highlight-source-shell"><pre>$ bower install materialize-autocomplete</pre></div>
+
+<h2>
+<a id="usage" class="anchor" href="#usage" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>Usage</h2>
+
+<p><img src="https://cloud.githubusercontent.com/assets/3138397/16448711/6fbbb510-3e25-11e6-9d1d-3f28a97d640b.png" alt="demo"></p>
+
+<ul>
+<li>When typing inside an input, autocomplete prompts will show on dropdown list</li>
+<li>Choosing an option by click or <code>↑</code>, <code>↓</code>, <code>Enter</code> keys</li>
+<li>Removing a selection by click <code>x</code> when enable multiple selection</li>
+</ul>
+
+<div class="highlight highlight-source-js"><pre><span class="pl-k">var</span> autocomplete <span class="pl-k">=</span><span class="pl-en">$</span>(<span class="pl-s"><span class="pl-pds">'</span>#el<span class="pl-pds">'</span></span>).<span class="pl-en">autocomplete</span>({
+    limit<span class="pl-k">:</span> <span class="pl-c1">20</span>,
+    multiple<span class="pl-k">:</span> {
+        enable<span class="pl-k">:</span> <span class="pl-c1">true</span>,
+        maxSize<span class="pl-k">:</span> <span class="pl-c1">10</span>,
+        <span class="pl-en">onExist</span><span class="pl-k">:</span> <span class="pl-k">function</span> (<span class="pl-smi">item</span>) { <span class="pl-c">/* ... */</span> },
+        <span class="pl-en">onExceed</span><span class="pl-k">:</span> <span class="pl-k">function</span> (<span class="pl-smi">maxSize</span>, <span class="pl-smi">item</span>) { <span class="pl-c">/* ... */</span> }
+    },
+    appender<span class="pl-k">:</span> {
+        el<span class="pl-k">:</span> <span class="pl-s"><span class="pl-pds">'</span>#someEl<span class="pl-pds">'</span></span>
+    },
+    <span class="pl-en">getData</span><span class="pl-k">:</span> <span class="pl-k">function</span> (<span class="pl-smi">value</span>, <span class="pl-smi">callback</span>) {
+        <span class="pl-c">// ...</span>
+        <span class="pl-en">callback</span>(value, data);
+    }
+});</pre></div>
+
+<h2>
+<a id="fnmaterialize_autocomplete" class="anchor" href="#fnmaterialize_autocomplete" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>$.fn.materialize_autocomplete</h2>
+
+<ul>
+<li>
+<code>$.fn.materialize_autocomplete(options) [function]</code>: Initialize an <code>autocomplete</code> widget and return an <code>Autocomplete</code> instance</li>
+</ul>
+
+<h2>
+<a id="autocomplete-options" class="anchor" href="#autocomplete-options" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>Autocomplete options</h2>
+
+<ul>
+<li>
+<code>cacheable [boolean]</code>: Dropdown data cacheable or not, default: <code>true</code>
+</li>
+<li>
+<code>limit [number]</code>: Max number of items show in dropdown, default: <code>10</code>
+</li>
+<li>
+<code>multiple [object]</code>: Configuration of multiple selection, seeing <a href="#properties-of-multiple">properties of multiple</a> for more details</li>
+<li>
+<code>hidden [object]</code>: Configuration of hidden input (used for storing <strong>ids</strong> joined by selections or <strong>id</strong> of a selection), seeing <a href="#properties-of-hidden">properties of hidden</a> for more details</li>
+<li>
+<code>appender [object]</code>: Configuration of appender (where to append selections when multiple selection is enabled), seeing <a href="#properties-of-appender">properties of appender</a> for more details</li>
+<li>
+<code>dropdown [object]</code>: Configuration of dropdown, seeing <a href="#properties-of-dropdown">properties of dropdown</a> for more details</li>
+<li>
+<code>handlers [object]</code>: Event handlers of the widget</li>
+<li>
+<code>getData(value, callback) [function]</code>: Function for getting dropdown list data, asynchronous called with a <code>callback</code>
+
+<ul>
+<li>
+<code>value [string]</code>: Input value，when <code>input</code> event triggered, <code>getData</code> will be called with input value</li>
+<li>
+<code>callback(value, data) [function]</code>: Callback function
+
+<ul>
+<li>
+<code>value [string]</code>: Same as <code>value</code> above</li>
+<li>
+<code>data [array]</code>: Data array，should be formatted as <code>[{ 'id': '1', 'text': 'a' }, { 'id': '2', 'text': 'b'}]</code>
+</li>
+</ul>
+</li>
+</ul>
+</li>
+<li>
+<code>throttling [boolean]</code>: Throttling for <code>getData</code> function or not，default: <code>true</code>
+</li>
+</ul>
+
+<h2>
+<a id="autocomplete" class="anchor" href="#autocomplete" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>Autocomplete</h2>
+
+<h3>
+<a id="constructor" class="anchor" href="#constructor" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>Constructor</h3>
+
+<ul>
+<li>
+<code>new Autocomplete(el, options) [function]</code>: Constructor
+
+<ul>
+<li>
+<code>el [string|object]</code>: DOM element on which the widget applys</li>
+<li>
+<code>options [object]</code>: Configuration of the widget</li>
+</ul>
+</li>
+</ul>
+
+<h3>
+<a id="instance-property" class="anchor" href="#instance-property" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>Instance property:</h3>
+
+<ul>
+<li>
+<code>autocomplete.options [object]</code>: Configuration object</li>
+<li>
+<code>autocomplete.$el [object]</code>: JQuery object on which the widget applys</li>
+<li>
+<code>autocomplete.$wrapper [object]</code>: Wrapper jQuery object，equal to <code>autocomplete.$el.parent()</code>
+</li>
+<li>
+<code>autocomplete.compiled [object]</code>: Compiling functions for <code>tagTemplate</code> and <code>itemTemplate</code>
+</li>
+<li>
+<code>autocomplete.$dropdown [object]</code>: JQuery object of dropdown</li>
+<li>
+<code>autocomplete.$appender [object]</code>: JQuery object of appender</li>
+<li>
+<code>autocomplete.$hidden [object]</code>: JQuery object of hidden input</li>
+<li>
+<code>autocomplete.resultCache [object]</code>: Result cache object of <code>getData</code> when <code>cacheable</code> is <code>true</code>
+</li>
+<li>
+<code>autocomplete.value [array]</code>: Value of widget, when multiple selection is enabled, <code>autocomplete.value</code> is <strong>ids</strong> joined by selections, otherswise <code>autocomplete.value</code> is <strong>id</strong> of a selection</li>
+</ul>
+
+<h3>
+<a id="instance-methods" class="anchor" href="#instance-methods" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>Instance methods:</h3>
+
+<ul>
+<li>
+<code>autocomplete.initialize() [function]</code>: Initializing method</li>
+<li>
+<code>autocomplete.render() [function]</code>: Rendering method</li>
+<li>
+<code>autocomplete.setValue(item) [function]</code>: Value setting method
+
+<ul>
+<li>
+<code>item [object]</code>: Selection object, e.g. <code>{ id: '1', text: 'a'}</code>
+</li>
+</ul>
+</li>
+<li>
+<code>autocomplete.append(item) [function]</code>: Appending an selection, called when <code>options.multiple.enable</code> is <code>true</code>
+</li>
+<li>
+<code>autocomplete.remove(item) [function]</code>: Removing an selection, called when <code>options.multiple.enable</code> is <code>true</code>
+</li>
+<li>
+<code>autocomplete.select(item) [function]</code>: Setting the value, called when <code>options.multiple.enable</code> is <code>false</code>
+</li>
+</ul>
+
+<h2>
+<a id="detailed-options" class="anchor" href="#detailed-options" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>Detailed options</h2>
+
+<h3>
+<a id="properties-of-multiple" class="anchor" href="#properties-of-multiple" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>Properties of multiple</h3>
+
+<table>
+<thead>
+<tr>
+<th align="left">property</th>
+<th align="left">description</th>
+<th align="left">default</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td align="left"><code>enable [boolean]</code></td>
+<td align="left">Enabled or not</td>
+<td align="left"><code>false</code></td>
+</tr>
+<tr>
+<td align="left"><code>maxSize [number]</code></td>
+<td align="left">Max number of selections</td>
+<td align="left"><code>4</code></td>
+</tr>
+<tr>
+<td align="left"><code>onExist [function]</code></td>
+<td align="left">Callback when selection to append exists</td>
+<td align="left"></td>
+</tr>
+<tr>
+<td align="left"><code>onExceed [function]</code></td>
+<td align="left">Callback when selections exceed <code>maxSize</code>
+</td>
+<td align="left"></td>
+</tr>
+<tr>
+<td align="left"><code>onAppend [function]</code></td>
+<td align="left">Callback after appending a selection</td>
+<td align="left"></td>
+</tr>
+<tr>
+<td align="left"><code>onRemove [function]</code></td>
+<td align="left">Callback after removing a selection</td>
+<td align="left"></td>
+</tr>
+</tbody>
+</table>
+
+<h3>
+<a id="properties-of-hidden" class="anchor" href="#properties-of-hidden" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>Properties of hidden</h3>
+
+<table>
+<thead>
+<tr>
+<th align="left">property</th>
+<th align="left">description</th>
+<th align="left">default</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td align="left"><code>enable [boolean]</code></td>
+<td align="left">Enabled or not</td>
+<td align="left"><code>false</code></td>
+</tr>
+<tr>
+<td align="left"><code>el [string|object]</code></td>
+<td align="left">Applying an existing DOM element if not null, otherwise created one</td>
+<td align="left"><code>''</code></td>
+</tr>
+<tr>
+<td align="left"><code>inputName [string]</code></td>
+<td align="left">
+<code>name</code> attribute of hidden input</td>
+<td align="left"><code>''</code></td>
+</tr>
+<tr>
+<td align="left"><code>required [boolean]</code></td>
+<td align="left">
+<code>required</code> attribute of hidden input</td>
+<td align="left"><code>false</code></td>
+</tr>
+</tbody>
+</table>
+
+<h3>
+<a id="properties-of-appender" class="anchor" href="#properties-of-appender" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>Properties of appender</h3>
+
+<table>
+<thead>
+<tr>
+<th align="left">property</th>
+<th align="left">description</th>
+<th align="left">default</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td align="left"><code>el [string|object]</code></td>
+<td align="left">Applying an existing DOM element if not null, otherwise created one</td>
+<td align="left"><code>''</code></td>
+</tr>
+<tr>
+<td align="left"><code>tagName [string]</code></td>
+<td align="left">
+<code>TagName</code> of appender when <code>appender.el</code> is null</td>
+<td align="left"><code>ul</code></td>
+</tr>
+<tr>
+<td align="left"><code>className [string]</code></td>
+<td align="left">
+<code>ClassName</code> attribute of appender</td>
+<td align="left"><code>ac-appender</code></td>
+</tr>
+<tr>
+<td align="left"><code>tagTemplate [string]</code></td>
+<td align="left">Template string of selections inside appender</td>
+<td align="left"></td>
+</tr>
+</tbody>
+</table>
+
+<p>Note that <code>tagTemplate</code> should use <a href="http://underscorejs.org/#template">undescore template</a> semantic, <strong><code>data-id</code> and <code>data-text</code> attributes should be specified on outest DOM</strong></p>
+
+<h3>
+<a id="properties-of-dropdown" class="anchor" href="#properties-of-dropdown" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>Properties of dropdown</h3>
+
+<table>
+<thead>
+<tr>
+<th align="left">property</th>
+<th align="left">description</th>
+<th align="left">default</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td align="left"><code>el [string|object]</code></td>
+<td align="left">Applying an existing DOM element if not null, otherwise created one</td>
+<td align="left"><code>''</code></td>
+</tr>
+<tr>
+<td align="left"><code>tagName [string]</code></td>
+<td align="left">
+<code>TagName</code> of dropdown when <code>dropdown.el</code> is null</td>
+<td align="left"><code>ul</code></td>
+</tr>
+<tr>
+<td align="left"><code>className [string]</code></td>
+<td align="left">
+<code>ClassName</code> attribute of dropdown</td>
+<td align="left"><code>ac-dropdown</code></td>
+</tr>
+<tr>
+<td align="left"><code>itemTemplate [string]</code></td>
+<td align="left">Template string of items inside dropdown</td>
+<td align="left"></td>
+</tr>
+<tr>
+<td align="left"><code>noItem [string]</code></td>
+<td align="left">Prompt for no data</td>
+<td align="left"><code>''</code></td>
+</tr>
+</tbody>
+</table>
+
+<p>Note that <code>itemTemplate</code> should use <a href="http://underscorejs.org/#template">undescore template</a>, <strong><code>data-id</code> and <code>data-text</code> attributes should be specified on outest DOM</strong></p>
+
+      <footer class="site-footer">
+        <span class="site-footer-owner"><a href="https://github.com/icefox0801/materialize-autocomplete">Materialize-autocomplete</a> is maintained by <a href="https://github.com/icefox0801">icefox0801</a>.</span>
+
+        <span class="site-footer-credits">This page was generated by <a href="https://pages.github.com">GitHub Pages</a> using the <a href="https://github.com/jasonlong/cayman-theme">Cayman theme</a> by <a href="https://twitter.com/jasonlong">Jason Long</a>.</span>
+      </footer>
+
+    </section>
+
+  
+  </body>
+</html>
