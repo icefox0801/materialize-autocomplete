@@ -1,5 +1,5 @@
 # materialize-autocomplete
-Materialize-css styled autocomplete 
+Materialize-css styled autocomplete, examples:  [https://icefox0801.github.io/materialize-autocomplete/examples/](https://icefox0801.github.io/materialize-autocomplete/examples/)
 
 
 ## Install
