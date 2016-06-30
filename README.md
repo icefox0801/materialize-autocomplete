@@ -44,35 +44,16 @@ var autocomplete =$('#el').autocomplete({
 + `cacheable [boolean]`: Dropdown data cacheable or not, default: `true`
 + `limit [number]`: Max number of items show in dropdown, default: `10`
 + `multiple [object]`: Configuration of multiple selection
-    + `multiple.enable [boolean]`: Enabled or not, default: `false`
-    + `multiple.maxSize [number]`: Max number of selections，default: `4`
-    + `multiple.onExist [function]`: Callback when selection to append exists
-    + `multiple.onExceed [function]`: Callback when selections exceed `maxSize`
-    + `multiple.onAppend [function]`: Callback after appending a selection
-    + `multiple.onRemove [function]`: Callback after removing a selection
-+ `hidden [object]`: Configuration of hidden input (used for storing **ids** joined by selections)
-    + `hidden.enable [boolean]`: Enabled or not, default: `false`
-    + `hidden.el [string|object]`: Applying an existing DOM element if not null, otherwise created one, default: `''`
-    + `hidden.inputName [string]`: `name` attribute of hidden input, default: `''`
-    + `hidden.required [boolean]`: `required` attribute of hidden input, default: `false`
++ `hidden [object]`: Configuration of hidden input (used for storing **ids** joined by selections or **id** of a selection)
 + `appender [object]`: Configuration of appender (where to append selections when multiple selection is enabled)
-    + `appender.el [string|object]`: Applying an existing DOM element if not null, otherwise created one, default: `''`
-    + `appender.tagName [string]`: `TagName` of appender when `appender.el` is null, default: `ul`
-    + `appender.className [string]`: `ClassName` attribute of appender, default: `ac-appender`
-    + `appender.tagTemplate [string]`: Template string of selections inside appender, using [undescore template](http://underscorejs.org/#template), **`data-id` and `data-text` attributes should be specified on outest DOM**
 + `dropdown [object]`: Configuration of dropdown
-    + `dropdown.el [string|object]`: Applying an existing DOM element if not null, otherwise created one, default: `''`
-    + `dropdown.tagName [string]`: `TagName` of dropdown when `dropdown.el` is null, default: `ul`
-    + `dropdown.className [string]`: `ClassName` attribute of dropdown, default: `ac-dropdown`
-    + `dropdown.itemTemplate [string]`: Template string of items inside dropdown, using [undescore template](http://underscorejs.org/#template), **`data-id` and `data-text` attributes should be specified on outest DOM**
-    + `dropdown.noItem [string]`: Prompt for no data，default: `''`
 + `handlers [object]`: Event handlers of the widget
 + `getData(value, callback) [function]`: Function for getting dropdown list data, asynchronous called with a `callback`
-    + `value [string]`: Input value，when `input` event triggered, `getData` function will be called with input value
+    + `value [string]`: Input value，when `input` event triggered, `getData` will be called with input value
     + `callback(value, data) [function]`: Callback function
         + `value [string]`: Same as `value` above
         + `data [array]`: Data array，should be formatted as `[{ 'id': '1', 'text': 'a' }, { 'id': '2', 'text': 'b'}]`
-+ `options.throttling [boolean]`: Throttling for `getData` function or not，default: `true`
++ `throttling [boolean]`: Throttling for `getData` function or not，default: `true`
 
 
 ## Autocomplete
@@ -100,3 +81,38 @@ var autocomplete =$('#el').autocomplete({
 + `autocomplete.append(item) [function]`: Appending an selection, called when `options.multiple.enable` is `true`
 + `autocomplete.remove(item) [function]`: Removing an selection, called when `options.multiple.enable` is `true`
 + `autocomplete.select(item) [function]`: Setting the value, called when `options.multiple.enable` is `false`
+
+## Detailed options
+### Properties of multiple
+|property|description|default|
+|:---|:---|:---|
+|`enable [boolean]`|Enabled or not|`false`|
+|`maxSize [number]`|Max number of selections|`4`|
+|`onExist [function]`|Callback when selection to append exists||
+|`onExceed [function]`|Callback when selections exceed `maxSize`||
+|`onAppend [function]`|Callback after appending a selection||
+|`onRemove [function]`|Callback after removing a selection||
+### Properties of hidden
+|property|description|default|
+|:---|:---|:---|
+|`enable [boolean]`|Enabled or not|`false`|
+|`el [string|object]`|Applying an existing DOM element if not null, otherwise created one|`''`|
+|`inputName [string]`|`name` attribute of hidden input|`''`|
+|`required [boolean]`|`required` attribute of hidden input|`false`|
+### Properties of appender
+|property|description|default|
+|:---|:---|:---|
+|`el [string|object]`|Applying an existing DOM element if not null, otherwise created one|`''`|
+|`tagName [string]`|`TagName` of appender when `appender.el` is null|`ul`|
+|`className [string]`|`ClassName` attribute of appender|`ac-appender`|
+|`tagTemplate [string]`|Template string of selections inside appender||
+Note that `tagTemplate` should use [undescore template](http://underscorejs.org/#template) semantic, **`data-id` and `data-text` attributes should be specified on outest DOM**
+### Properties of dropdown
+|property|description|default|
+|:---|:---|:---|
+|`el [string|object]`|Applying an existing DOM element if not null, otherwise created one|`''`|
+|`tagName [string]`|`TagName` of dropdown when `dropdown.el` is null|`ul`|
+|`className [string]`|`ClassName` attribute of dropdown|`ac-dropdown`|
+|`itemTemplate [string]`|Template string of items inside dropdown||
+|`noItem [string]`|Prompt for no data|`''`|
+Note that `itemTemplate` should use [undescore template](http://underscorejs.org/#template), **`data-id` and `data-text` attributes should be specified on outest DOM**
