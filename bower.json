@@ -1,0 +1,23 @@
+{
+  "name": "materialize-autocomplete",
+  "description": "Materialize-css styled autocomplete",
+  "main": "jquery.materialize-autocomplete.js",
+  "authors": [
+    "icefox0801 <icefox0801@hotmail.com>"
+  ],
+  "license": "MIT",
+  "keywords": [
+    "materialize",
+    "autocomplete",
+    "jquery"
+  ],
+  "homepage": "https://github.com/icefox0801/materialize-autocomplete",
+  "ignore": [
+    "**/.*",
+    "node_modules",
+    "bower_components",
+    "test",
+    "tests"
+  ],
+  "version": "1.0.0"
+}

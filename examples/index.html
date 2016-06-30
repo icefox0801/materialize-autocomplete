@@ -1,0 +1,158 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Materialize-autocomplete demo</title>  <!-- Compiled and minified CSS -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.97.6/css/materialize.min.css">
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
+    <!-- Compiled and minified JavaScript -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.97.6/js/materialize.min.js"></script>
+    <style>
+        .autocomplete {
+            display: -ms-flexbox;
+            display: flex;
+        }
+        .autocomplete .ac-users {
+            padding-top: 10px;
+        }
+        .autocomplete .ac-users .chip {
+            -ms-flex: auto;
+            flex: auto;
+            margin-bottom: 10px;
+            margin-right: 10px;
+        }
+        .autocomplete .ac-users .chip:last-child {
+            margin-right: 5px;
+        }
+        .autocomplete .ac-dropdown .ac-hover {
+            background: #eee;
+        }
+        .autocomplete .ac-input {
+            -ms-flex: 1;
+            flex: 1;
+            min-width: 150px;
+            padding-top: 0.6rem;
+        }
+        .autocomplete .ac-input input {
+            height: 2.4rem;
+        }
+    </style>
+</head>
+<body>
+<div class="container">
+    <div class="row">
+        <h1 class="col s12">Materialize-autocomplete</h1>
+        <form class="col s12">
+            <div class="row">
+                <div class="input-field col s12">
+                    <div class="autocomplete" id="single">
+                        <div class="ac-input">
+                            <input type="text" id="singleInput"  placeholder="Please input some letters" data-activates="singleDropdown" data-beloworigin="true" autocomplete="off">
+                        </div>
+                        <ul id="singleDropdown" class="dropdown-content ac-dropdown"></ul>
+                    </div>
+                    <label class="active" for="singleInput">Single autocomplete: </label>
+                </div>
+            </div>
+            <div class="row">
+                <div class="input-field col s12">
+                    <div class="autocomplete" id="multiple">
+                        <div class="ac-users"></div>
+                        <div class="ac-input">
+                            <input type="text" id="multipleInput" placeholder="Please input some letters" data-activates="multipleDropdown" data-beloworigin="true" autocomplete="off">
+                        </div>
+                        <ul id="multipleDropdown" class="dropdown-content ac-dropdown"></ul>
+                        <input type="hidden" name="multipleHidden" />
+                    </div>
+                    <label class="active" for="multipleInput">Multiple autocomplete: </label>
+                </div>
+            </div>
+        </form>
+    </div>
+</div>
+<script src="../jquery.materialize-autocomplete.js"></script>
+<script>
+    $(function () {
+        var single = $('#singleInput').materialize_autocomplete({
+            multiple: {
+                enable: false
+            },
+            dropdown: {
+                el: '#singleDropdown'
+            }
+        });
+
+        var multiple = $('#multipleInput').materialize_autocomplete({
+            multiple: {
+                enable: true
+            },
+            appender: {
+                el: '.ac-users'
+            },
+            dropdown: {
+                el: '#multipleDropdown'
+            }
+        });
+
+        var resultCache = {
+            'a': [
+                {
+                    id: 'Abe',
+                    text: 'Abe'
+                },
+                {
+                    id: 'Ari',
+                    text: 'Ari'
+                }
+            ],
+            'b': [
+                {
+                    id: 'Baz',
+                    text: 'Baz'
+                }
+            ],
+            'ba': [
+                {
+                    id: 'Baz',
+                    text: 'Baz'
+                }
+            ],
+            'baz': [
+                {
+                    id: 'Baz',
+                    text: 'Baz'
+                }
+            ],
+            'ab': [
+                {
+                    id: 'Abe',
+                    text: 'Abe'
+                }
+            ],
+            'abe': [
+                {
+                    id: 'Abe',
+                    text: 'Abe'
+                }
+            ],
+            'ar': [
+                {
+                    id: 'Ari',
+                    text: 'Ari'
+                }
+            ],
+            'ari': [
+                {
+                    id: 'Ari',
+                    text: 'Ari'
+                }
+            ]
+        };
+
+        single.resultCache = resultCache;
+        multiple.resultCache = resultCache;
+    });
+</script>
+</body>
+</html>
