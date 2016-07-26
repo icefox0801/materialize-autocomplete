@@ -13,7 +13,7 @@ $ bower install materialize-autocomplete
 ```
 
 ## Usage
-![demo](https://cloud.githubusercontent.com/assets/3138397/16448711/6fbbb510-3e25-11e6-9d1d-3f28a97d640b.png)
+![autocomplete](https://cloud.githubusercontent.com/assets/3138397/17131670/1cca05be-5351-11e6-8c77-1d9a98ab765c.gif)
 + When typing inside an input, autocomplete prompts will show on dropdown list
 + Choosing an option by click or `↑`, `↓`, `Enter` keys
 + Removing a selection by click `x` when enable multiple selection
