@@ -427,7 +427,7 @@
             self.$dropdown.html('').hide();
 
             if (self.options.hidden.enable) {
-                self.$hidden.val(item.value);
+                self.$hidden.val(item.id);
             }
         }
     };
