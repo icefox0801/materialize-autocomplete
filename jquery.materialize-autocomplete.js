@@ -424,6 +424,7 @@
             self.value = item.text;
             self.$el.val(item.text);
             self.$el.data('value', item.id);
+            self.$dropdown.html('').hide();
 
             if (self.options.hidden.enable) {
                 self.$hidden.val(item.value);
