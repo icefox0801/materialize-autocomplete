@@ -53,7 +53,8 @@ var autocomplete =$('#el').autocomplete({
     + `callback(value, data) [function]`: Callback function
         + `value [string]`: Same as `value` above
         + `data [array]`: Data array，should be formatted as `[{ 'id': '1', 'text': 'a' }, { 'id': '2', 'text': 'b'}]`
-+ `throttling [boolean]`: Throttling for `getData` function or not，default: `true`
++ `ignoreCase [boolean]`: Ignore case or not, default: `true`
++ `throttling [boolean]`: Throttling for `getData` function or not, default: `true`
 
 
 ## Autocomplete
