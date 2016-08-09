@@ -1,5 +1,5 @@
 # materialize-autocomplete
-Materialize-css styled autocomplete 
+Materialize-css styled autocomplete, examples:  [https://icefox0801.github.io/materialize-autocomplete/examples/](https://icefox0801.github.io/materialize-autocomplete/examples/)
 
 
 ## Install
@@ -13,7 +13,7 @@ $ bower install materialize-autocomplete
 ```
 
 ## Usage
-![demo](https://cloud.githubusercontent.com/assets/3138397/16448711/6fbbb510-3e25-11e6-9d1d-3f28a97d640b.png)
+![autocomplete](https://cloud.githubusercontent.com/assets/3138397/17131670/1cca05be-5351-11e6-8c77-1d9a98ab765c.gif)
 + When typing inside an input, autocomplete prompts will show on dropdown list
 + Choosing an option by click or `↑`, `↓`, `Enter` keys
 + Removing a selection by click `x` when enable multiple selection
@@ -53,7 +53,8 @@ var autocomplete =$('#el').autocomplete({
     + `callback(value, data) [function]`: Callback function
         + `value [string]`: Same as `value` above
         + `data [array]`: Data array，should be formatted as `[{ 'id': '1', 'text': 'a' }, { 'id': '2', 'text': 'b'}]`
-+ `throttling [boolean]`: Throttling for `getData` function or not，default: `true`
++ `ignoreCase [boolean]`: Ignore case or not, default: `true`
++ `throttling [boolean]`: Throttling for `getData` function or not, default: `true`
 
 
 ## Autocomplete

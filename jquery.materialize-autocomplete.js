@@ -130,6 +130,7 @@
         getData: function (value, callback) {
             callback(value, []);
         },
+        ignoreCase: true,
         throttling: true
     };
 
@@ -163,10 +164,14 @@
                 var itemsHtml = getItemsHtml(list);
                 var currentValue = self.$el.val();
 
+                if (self.options.ignoreCase) {
+                    currentValue = currentValue.toUpperCase();
+                }
+
                 if (self.options.cacheable && !self.resultCache.hasOwnProperty(value)) {
                     self.resultCache[value] = list;
                 }
-                // 如果value与当前input的value不相等，说明返回的是前面请求的结果
+ 
                 if (value !== currentValue) {
                     return false;
                 }
@@ -194,6 +199,10 @@
                 if (!value) {
                     self.$dropdown.hide();
                     return false;
+                }
+
+                if (self.options.ignoreCase) {
+                    value = value.toUpperCase();
                 }
 
                 if (self.resultCache.hasOwnProperty(value) && self.resultCache[value]) {
@@ -424,9 +433,10 @@
             self.value = item.text;
             self.$el.val(item.text);
             self.$el.data('value', item.id);
+            self.$dropdown.html('').hide();
 
             if (self.options.hidden.enable) {
-                self.$hidden.val(item.value);
+                self.$hidden.val(item.id);
             }
         }
     };
