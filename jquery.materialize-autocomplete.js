@@ -245,19 +245,19 @@
 
                     $items = self.$dropdown.find('[data-id]');
 
-                    if (!$items.size()) {
+                    if (!$items.length) {
                         return false;
                     }
 
                     $hover = $items.filter('.ac-hover');
 
-                    if (!$hover.size()) {
+                    if (!$hover.length) {
                         $items.removeClass('ac-hover');
                         $items.eq(keyCode == '40' ? 0 : -1).addClass('ac-hover');
                     } else {
                         var index = $hover.index();
                         $items.removeClass('ac-hover');
-                        $items.eq(keyCode == '40' ? (index + 1) % $items.size() : index - 1).addClass('ac-hover');
+                        $items.eq(keyCode == '40' ? (index + 1) % $items.length : index - 1).addClass('ac-hover');
                     }
 
                     return false;
@@ -266,13 +266,13 @@
                 if (keyCode == '13') {
                     $items = self.$dropdown.find('[data-id]');
 
-                    if (!$items.size()) {
+                    if (!$items.length) {
                         return false;
                     }
 
                     $hover = $items.filter('.ac-hover');
 
-                    if (!$hover.size()) {
+                    if (!$hover.length) {
                         return false;
                     }
 
