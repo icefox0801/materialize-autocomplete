@@ -1,6 +1,6 @@
 {
   "name": "materialize-autocomplete",
-  "version": "1.0.1",
+  "version": "1.0.2",
   "description": "Materialize-css styled autocomplete",
   "main": "jquery.materialize-autocomplete.js",
   "scripts": {
