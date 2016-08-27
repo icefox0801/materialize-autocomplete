@@ -171,7 +171,7 @@
                 if (self.options.cacheable && !self.resultCache.hasOwnProperty(value)) {
                     self.resultCache[value] = list;
                 }
- 
+
                 if (value !== currentValue) {
                     return false;
                 }
@@ -298,7 +298,7 @@
 
             self.$appender.on('click', '[data-id] .close', function (e) {
                 var $t = $(this);
-                var $li = $t.closest('[data-id');
+                var $li = $t.closest('[data-id]');
                 var item = {
                     id: $li.data('id'),
                     text: $li.data('text')
