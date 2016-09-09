@@ -377,7 +377,7 @@
             if (self.value.length >= self.options.multiple.maxSize) {
 
                 if ('function' === typeof self.options.multiple.onExceed) {
-                    self.options.multiple.onExceed.call(this, self.options.multiple.maxSize);
+                    self.options.multiple.onExceed.call(undefined, self.options.multiple.maxSize, item);
                 }
 
                 return false;
