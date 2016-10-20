@@ -47,7 +47,7 @@ var autocomplete =$('#el').autocomplete({
 + `hidden [object]`: Configuration of hidden input (used for storing **ids** joined by selections or **id** of a selection), seeing [properties of hidden](#properties-of-hidden) for more details
 + `appender [object]`: Configuration of appender (where to append selections when multiple selection is enabled), seeing [properties of appender](#properties-of-appender) for more details
 + `dropdown [object]`: Configuration of dropdown, seeing [properties of dropdown](#properties-of-dropdown) for more details
-+ `handlers [object]`: Event handlers of the widget
++ `onSelect(item) [function]`: Callback function after selecting an item in single selection mode
 + `getData(value, callback) [function]`: Function for getting dropdown list data, asynchronous called with a `callback`
     + `value [string]`: Input value，when `input` event triggered, `getData` will be called with input value
     + `callback(value, data) [function]`: Callback function
