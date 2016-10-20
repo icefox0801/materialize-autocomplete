@@ -10,6 +10,8 @@
 
 }(this, function ($) {
 
+    var noop = function () {};
+
     var template = function (text) {
         var matcher = new RegExp('<%=([\\s\\S]+?)%>|<%([\\s\\S]+?)%>|$', 'g');
 
@@ -123,13 +125,10 @@
             itemTemplate: '<li class="ac-item" data-id="<%= item.id %>" data-text="<%= item.text %>"><a href="javascript:void(0)"><%= item.text %></a></li>',
             noItem: ''
         },
-        handlers: {
-            'setValue': '.ac-dropdown .ac-item',
-            '.ac-appender .ac-tag .close': 'remove'
-        },
         getData: function (value, callback) {
             callback(value, []);
         },
+        onSelect: noop,
         ignoreCase: true,
         throttling: true
     };
@@ -437,6 +436,10 @@
 
             if (self.options.hidden.enable) {
                 self.$hidden.val(item.id);
+            }
+
+            if ('function' === typeof self.options.onSelect) {
+                self.options.onSelect.call(self, item);
             }
         }
     };
