@@ -80,7 +80,8 @@
                 enable: false
             },
             dropdown: {
-                el: '#singleDropdown'
+                el: '#singleDropdown',
+                itemTemplate: '<li class="ac-item" data-id="<%= item.id %>" data-text=\'<%= item.text %>\'><a href="javascript:void(0)"><%= item.highlight %></a></li>'
             },
             onSelect: function (item) {
                 console.log(item.text + ' was selected');
@@ -103,53 +104,67 @@
             'A': [
                 {
                     id: 'Abe',
-                    text: 'Abe'
+                    text: 'Sia \"Zirdzi\u0146\u0161\"',
+                    highlight: 'Sia \"Zirdzi\u0146\u0161\"'
                 },
                 {
                     id: 'Ari',
-                    text: 'Ari'
+                    text: 'Ari',
+                    highlight: '<strong>A</strong>ri'
                 }
             ],
             'B': [
                 {
+                    id: 'Abe',
+                    text: 'Abe',
+                    highlight: '<strong>A</strong>be'
+                },
+                {
                     id: 'Baz',
-                    text: 'Baz'
+                    text: 'Baz',
+                    highlight: '<strong>B</strong>az'
                 }
             ],
             'BA': [
                 {
                     id: 'Baz',
-                    text: 'Baz'
+                    text: 'Baz',
+                    highlight: '<strong>Ba</strong>z'
                 }
             ],
             'BAZ': [
                 {
                     id: 'Baz',
-                    text: 'Baz'
+                    text: 'Baz',
+                    highlight: '<strong>Baz</strong>'
                 }
             ],
             'AB': [
                 {
                     id: 'Abe',
-                    text: 'Abe'
+                    text: 'Abe',
+                    highlight: '<strong>Ab</strong>e'
                 }
             ],
             'ABE': [
                 {
                     id: 'Abe',
-                    text: 'Abe'
+                    text: 'Abe',
+                    highlight: '<strong>Abe</strong>'
                 }
             ],
             'AR': [
                 {
                     id: 'Ari',
-                    text: 'Ari'
+                    text: 'Ari',
+                    highlight: '<strong>Ar</strong>i'
                 }
             ],
             'ARI': [
                 {
                     id: 'Ari',
-                    text: 'Ari'
+                    text: 'Ari',
+                    highlight: '<strong>Ari</strong>'
                 }
             ]
         };
