@@ -336,7 +336,7 @@
                 }
 
                 if (self.options.hidden.inputName) {
-                    self.$el.attr('name', self.options.hidden.inputName);
+                    self.$hidden.attr('name', self.options.hidden.inputName);
                 }
 
                 if (self.options.hidden.required) {
