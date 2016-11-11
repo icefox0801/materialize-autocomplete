@@ -19,7 +19,7 @@ $ bower install materialize-autocomplete
 + Removing a selection by click `x` when enable multiple selection
 
 ```javascript
-var autocomplete =$('#el').autocomplete({
+var autocomplete = $('#el').materialize_autocomplete({
     limit: 20,
     multiple: {
         enable: true,
