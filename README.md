@@ -97,7 +97,7 @@ var autocomplete = $('#el').materialize_autocomplete({
 |property|description|default|
 |:---|:---|:---|
 |`enable [boolean]`|Enabled or not|`false`|
-|`el [string&#124;object]`|Applying an existing DOM element if not null, otherwise created one|`''`|
+|`el [string &#124; object]`|Applying an existing DOM element if not null, otherwise created one|`''`|
 |`inputName [string]`|`name` attribute of hidden input|`''`|
 |`required [boolean]`|`required` attribute of hidden input|`false`|
 ### Properties of appender
