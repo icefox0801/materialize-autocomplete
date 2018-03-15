@@ -97,13 +97,13 @@ var autocomplete = $('#el').materialize_autocomplete({
 |property|description|default|
 |:---|:---|:---|
 |`enable [boolean]`|Enabled or not|`false`|
-|`el [string|object]`|Applying an existing DOM element if not null, otherwise created one|`''`|
+|`el [string&#124;object]`|Applying an existing DOM element if not null, otherwise created one|`''`|
 |`inputName [string]`|`name` attribute of hidden input|`''`|
 |`required [boolean]`|`required` attribute of hidden input|`false`|
 ### Properties of appender
 |property|description|default|
 |:---|:---|:---|
-|`el [string|object]`|Applying an existing DOM element if not null, otherwise created one|`''`|
+|`el [string&#124;object]`|Applying an existing DOM element if not null, otherwise created one|`''`|
 |`tagName [string]`|`TagName` of appender when `appender.el` is null|`ul`|
 |`className [string]`|`ClassName` attribute of appender|`ac-appender`|
 |`tagTemplate [string]`|Template string of selections inside appender||
@@ -111,7 +111,7 @@ Note that `tagTemplate` should use [undescore template](http://underscorejs.org/
 ### Properties of dropdown
 |property|description|default|
 |:---|:---|:---|
-|`el [string|object]`|Applying an existing DOM element if not null, otherwise created one|`''`|
+|`el [string&#124;object]`|Applying an existing DOM element if not null, otherwise created one|`''`|
 |`tagName [string]`|`TagName` of dropdown when `dropdown.el` is null|`ul`|
 |`className [string]`|`ClassName` attribute of dropdown|`ac-dropdown`|
 |`itemTemplate [string]`|Template string of items inside dropdown||
