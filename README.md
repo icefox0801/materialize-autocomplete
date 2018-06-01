@@ -97,23 +97,25 @@ var autocomplete = $('#el').materialize_autocomplete({
 |property|description|default|
 |:---|:---|:---|
 |`enable [boolean]`|Enabled or not|`false`|
-|`el [string|object]`|Applying an existing DOM element if not null, otherwise created one|`''`|
+|<code>el [string&#124;object]</code>|Applying an existing DOM element if not null, otherwise created one|`''`|
 |`inputName [string]`|`name` attribute of hidden input|`''`|
 |`required [boolean]`|`required` attribute of hidden input|`false`|
 ### Properties of appender
 |property|description|default|
 |:---|:---|:---|
-|`el [string|object]`|Applying an existing DOM element if not null, otherwise created one|`''`|
+|<code>el [string&#124;object]</code>|Applying an existing DOM element if not null, otherwise created one|`''`|
 |`tagName [string]`|`TagName` of appender when `appender.el` is null|`ul`|
 |`className [string]`|`ClassName` attribute of appender|`ac-appender`|
 |`tagTemplate [string]`|Template string of selections inside appender||
+
 Note that `tagTemplate` should use [undescore template](http://underscorejs.org/#template) semantic, **`data-id` and `data-text` attributes should be specified on outest DOM**
 ### Properties of dropdown
 |property|description|default|
 |:---|:---|:---|
-|`el [string|object]`|Applying an existing DOM element if not null, otherwise created one|`''`|
+|<code>el [string&#124;object]</code>|Applying an existing DOM element if not null, otherwise created one|`''`|
 |`tagName [string]`|`TagName` of dropdown when `dropdown.el` is null|`ul`|
 |`className [string]`|`ClassName` attribute of dropdown|`ac-dropdown`|
 |`itemTemplate [string]`|Template string of items inside dropdown||
 |`noItem [string]`|Prompt for no data|`''`|
+
 Note that `itemTemplate` should use [undescore template](http://underscorejs.org/#template), **`data-id` and `data-text` attributes should be specified on outest DOM**
