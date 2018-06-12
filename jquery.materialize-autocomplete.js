@@ -130,7 +130,10 @@
         },
         onSelect: noop,
         ignoreCase: true,
-        throttling: true
+        throttling: true,
+        debounce: 200,
+        enterOnSpace: false,
+        allowNotSelectedItems: false,
     };
 
     Autocomplete.prototype = {
@@ -213,7 +216,7 @@
                     clearTimeout(timer);
                     timer = setTimeout(function () {
                         self.options.getData(value, handleList);
-                    }, 200);
+                    }, self.options.debounce);
                     return true;
                 }
 
@@ -261,23 +264,36 @@
 
                     return false;
                 }
-                // ENTER KEY CODE
-                if (keyCode == '13') {
+                // ENTER/SPACE KEY CODE
+                if (keyCode == '13' || (self.options.enterOnSpace && keyCode == '32')) {
                     $items = self.$dropdown.find('[data-id]');
 
-                    if (!$items.length) {
-                        return false;
+                    var id;
+                    var text;
+
+                    if (!$items.length && self.options.allowNotSelectedItems) {
+                        id = e.target.value;
+                        text = id;
+                    } else if ($items.length) {
+
+                        $hover = $items.filter('.ac-hover');
+
+                        if ($hover.length) {
+                            id = $hover.data('id');
+                            text = $hover.data('text');
+                        } else if (self.options.allowNotSelectedItems) {
+                            id = e.target.value;
+                            text = id;
+                        }
                     }
 
-                    $hover = $items.filter('.ac-hover');
-
-                    if (!$hover.length) {
+                    if (!id) {
                         return false;
                     }
 
                     self.setValue({
-                        id: $hover.data('id'),
-                        text: $hover.data('text')
+                        id: id,
+                        text: text
                     });
 
                     return false;
@@ -425,6 +441,17 @@
                 self.options.multiple.onRemove.call(self, item);
             }
 
+        },
+        clear: function () {
+            if (this.options.multiple.enable) {
+                while (this.value.length > 0) {
+                    this.remove(this.value[0]);
+                }
+            } else {
+                this.select({id: '', text: ''});
+            }
+
+            this.$el.val('');
         },
         select: function (item) {
             var self = this;
